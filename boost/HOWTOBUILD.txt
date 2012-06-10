@@ -1,0 +1,7 @@
+bjam --toolset=msvc-9.0
+bjam --toolset=msvc-9.0 address-model=64
+
+or
+
+bjam --toolset=msvc-10.0
+bjam --toolset=msvc-10.0 address-model=64
