@@ -1,0 +1,2 @@
+openssl-0.9.8k
+downloaded from code.google.com/p/openssl-for-windows
