@@ -1,7 +1,11 @@
+c:\program files\microsoft visual studio 9.0\vc\vcvarsall.bat
 bjam --toolset=msvc-9.0
+# now backup boost/stage/lib, otherwise the files are overwritten
 bjam --toolset=msvc-9.0 address-model=64
 
 or
 
+c:\program files\microsoft visual studio 10.0\vc\vcvarsall.bat
 bjam --toolset=msvc-10.0
+# now backup boost/stage/lib, otherwise the files are overwritten
 bjam --toolset=msvc-10.0 address-model=64
