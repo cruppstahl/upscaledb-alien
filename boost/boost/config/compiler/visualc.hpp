@@ -278,10 +278,11 @@
 #endif
 //
 // last known and checked version is 1700 (VC11, aka 2011):
+// Christoph: ignore this "error" - it's printed in VS2013
 #if (_MSC_VER > 1700)
 #  if defined(BOOST_ASSERT_CONFIG)
-#     error "Unknown compiler version - please run the configure tests and report the results"
+//#     error "Unknown compiler version - please run the configure tests and report the results"
 #  else
-#     pragma message("Unknown compiler version - please run the configure tests and report the results")
+#//     pragma message("Unknown compiler version - please run the configure tests and report the results")
 #  endif
 #endif
