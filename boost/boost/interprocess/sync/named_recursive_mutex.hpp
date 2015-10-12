@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -11,7 +11,11 @@
 #ifndef BOOST_INTERPROCESS_NAMED_RECURSIVE_MUTEX_HPP
 #define BOOST_INTERPROCESS_NAMED_RECURSIVE_MUTEX_HPP
 
-#if (defined _MSC_VER) && (_MSC_VER >= 1200)
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
 #  pragma once
 #endif
 
@@ -20,7 +24,12 @@
 #include <boost/interprocess/creation_tags.hpp>
 #include <boost/interprocess/detail/posix_time_types_wrk.hpp>
 #include <boost/interprocess/permissions.hpp>
-#include <boost/interprocess/sync/shm/named_recursive_mutex.hpp>
+#if !defined(BOOST_INTERPROCESS_FORCE_GENERIC_EMULATION) && defined (BOOST_INTERPROCESS_WINDOWS)
+   #include <boost/interprocess/sync/windows/named_recursive_mutex.hpp>
+   #define BOOST_INTERPROCESS_USE_WINDOWS
+#else
+   #include <boost/interprocess/sync/shm/named_recursive_mutex.hpp>
+#endif
 
 //!\file
 //!Describes a named named_recursive_mutex class for inter-process synchronization
@@ -28,28 +37,28 @@
 namespace boost {
 namespace interprocess {
 
-/// @cond
+#if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
 namespace ipcdetail{ class interprocess_tester; }
-/// @endcond
+#endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
-//!A recursive mutex with a global name, so it can be found from different 
+//!A recursive mutex with a global name, so it can be found from different
 //!processes. This mutex can't be placed in shared memory, and
 //!each process should have it's own named_recursive_mutex.
 class named_recursive_mutex
 {
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    //Non-copyable
    named_recursive_mutex();
    named_recursive_mutex(const named_recursive_mutex &);
    named_recursive_mutex &operator=(const named_recursive_mutex &);
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
    public:
 
    //!Creates a global recursive_mutex with a name.
    //!If the recursive_mutex can't be created throws interprocess_exception
    named_recursive_mutex(create_only_t create_only, const char *name, const permissions &perm = permissions());
 
-   //!Opens or creates a global recursive_mutex with a name. 
+   //!Opens or creates a global recursive_mutex with a name.
    //!If the recursive_mutex is created, this call is equivalent to
    //!named_recursive_mutex(create_only_t, ... )
    //!If the recursive_mutex is already created, this call is equivalent
@@ -78,7 +87,7 @@ class named_recursive_mutex
    //!Throws interprocess_exception if a severe error is found.
    void lock();
 
-   //!Tries to lock the named_recursive_mutex, returns false when named_recursive_mutex 
+   //!Tries to lock the named_recursive_mutex, returns false when named_recursive_mutex
    //!is already locked, returns true when success.
    //!Throws interprocess_exception if a severe error is found.
    bool try_lock();
@@ -92,18 +101,23 @@ class named_recursive_mutex
    //!from the system
    static bool remove(const char *name);
 
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    private:
    friend class ipcdetail::interprocess_tester;
    void dont_close_on_destruction();
 
-   typedef ipcdetail::shm_named_recursive_mutex impl_t;
+   #if defined(BOOST_INTERPROCESS_USE_WINDOWS)
+      typedef ipcdetail::windows_named_recursive_mutex   impl_t;
+      #undef BOOST_INTERPROCESS_USE_WINDOWS
+   #else
+      typedef ipcdetail::shm_named_recursive_mutex impl_t;
+   #endif
    impl_t m_mut;
 
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 };
 
-/// @cond
+#if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
 
 inline named_recursive_mutex::~named_recursive_mutex()
 {}
@@ -133,18 +147,12 @@ inline bool named_recursive_mutex::try_lock()
 {  return m_mut.try_lock();  }
 
 inline bool named_recursive_mutex::timed_lock(const boost::posix_time::ptime &abs_time)
-{
-   if(abs_time == boost::posix_time::pos_infin){
-      this->lock();
-      return true;
-   }
-   return m_mut.timed_lock(abs_time);
-}
+{  return m_mut.timed_lock(abs_time);  }
 
 inline bool named_recursive_mutex::remove(const char *name)
 {  return impl_t::remove(name); }
 
-/// @endcond
+#endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
 }  //namespace interprocess {
 }  //namespace boost {

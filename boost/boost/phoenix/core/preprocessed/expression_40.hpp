@@ -36,7 +36,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type
             >::type
             base_type;
@@ -46,19 +46,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -78,7 +79,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type
             >::type
             base_type;
@@ -88,19 +89,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -120,7 +122,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type
             >::type
             base_type;
@@ -130,19 +132,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -162,7 +165,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type
             >::type
             base_type;
@@ -172,19 +175,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -204,7 +208,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type
             >::type
             base_type;
@@ -214,19 +218,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -246,7 +251,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type
             >::type
             base_type;
@@ -256,19 +261,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -288,7 +294,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type
             >::type
             base_type;
@@ -298,19 +304,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -330,7 +337,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type
             >::type
             base_type;
@@ -340,19 +347,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -372,7 +380,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type
             >::type
             base_type;
@@ -382,19 +390,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -414,7 +423,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type
             >::type
             base_type;
@@ -424,19 +433,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -456,7 +466,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type
             >::type
             base_type;
@@ -466,19 +476,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -498,7 +509,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type
             >::type
             base_type;
@@ -508,19 +519,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -540,7 +552,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type
             >::type
             base_type;
@@ -550,19 +562,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -582,7 +595,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type
             >::type
             base_type;
@@ -592,19 +605,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -624,7 +638,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type
             >::type
             base_type;
@@ -634,19 +648,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -666,7 +681,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type
             >::type
             base_type;
@@ -676,19 +691,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -708,7 +724,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type
             >::type
             base_type;
@@ -718,19 +734,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -750,7 +767,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type
             >::type
             base_type;
@@ -760,19 +777,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -792,7 +810,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type
             >::type
             base_type;
@@ -802,19 +820,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -834,7 +853,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type
             >::type
             base_type;
@@ -844,19 +863,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -876,7 +896,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type
             >::type
             base_type;
@@ -886,19 +906,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -918,7 +939,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type
             >::type
             base_type;
@@ -928,19 +949,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -960,7 +982,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type
             >::type
             base_type;
@@ -970,19 +992,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1002,7 +1025,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type
             >::type
             base_type;
@@ -1012,19 +1035,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1044,7 +1068,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type
             >::type
             base_type;
@@ -1054,19 +1078,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1086,7 +1111,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type
             >::type
             base_type;
@@ -1096,19 +1121,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1128,7 +1154,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type
             >::type
             base_type;
@@ -1138,19 +1164,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1170,7 +1197,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type
             >::type
             base_type;
@@ -1180,19 +1207,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1212,7 +1240,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type
             >::type
             base_type;
@@ -1222,19 +1250,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1254,7 +1283,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type
             >::type
             base_type;
@@ -1264,19 +1293,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1296,7 +1326,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type
             >::type
             base_type;
@@ -1306,19 +1336,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1338,7 +1369,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type
             >::type
             base_type;
@@ -1348,19 +1379,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1380,7 +1412,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type
             >::type
             base_type;
@@ -1390,19 +1422,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1422,7 +1455,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type
             >::type
             base_type;
@@ -1432,19 +1465,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1464,7 +1498,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type
             >::type
             base_type;
@@ -1474,19 +1508,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1506,7 +1541,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A35>::value_type>::type
             >::type
             base_type;
@@ -1516,19 +1551,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34 , typename call_traits<A35>::param_type a35)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34 , a35)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1548,7 +1584,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A35>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A36>::value_type>::type
             >::type
             base_type;
@@ -1558,19 +1594,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34 , typename call_traits<A35>::param_type a35 , typename call_traits<A36>::param_type a36)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34 , a35 , a36)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1590,7 +1627,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A35>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A36>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A37>::value_type>::type
             >::type
             base_type;
@@ -1600,19 +1637,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34 , typename call_traits<A35>::param_type a35 , typename call_traits<A36>::param_type a36 , typename call_traits<A37>::param_type a37)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34 , a35 , a36 , a37)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1632,7 +1670,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A35>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A36>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A37>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A38>::value_type>::type
             >::type
             base_type;
@@ -1642,19 +1680,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34 , typename call_traits<A35>::param_type a35 , typename call_traits<A36>::param_type a36 , typename call_traits<A37>::param_type a37 , typename call_traits<A38>::param_type a38)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34 , a35 , a36 , a37 , a38)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;
@@ -1674,7 +1713,7 @@ namespace boost { namespace phoenix
         typedef
             typename proto::result_of::make_expr<
                 Tag
-              , proto::basic_default_domain
+              , phoenix_default_domain 
               , typename proto::detail::uncvref<typename call_traits<A0>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A1>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A2>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A3>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A4>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A5>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A6>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A7>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A8>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A9>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A10>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A11>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A12>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A13>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A14>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A15>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A16>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A17>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A18>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A19>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A20>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A21>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A22>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A23>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A24>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A25>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A26>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A27>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A28>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A29>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A30>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A31>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A32>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A33>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A34>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A35>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A36>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A37>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A38>::value_type>::type , typename proto::detail::uncvref<typename call_traits<A39>::value_type>::type
             >::type
             base_type;
@@ -1684,19 +1723,20 @@ namespace boost { namespace phoenix
             proto_grammar;
         
         static type make(typename call_traits<A0>::param_type a0 , typename call_traits<A1>::param_type a1 , typename call_traits<A2>::param_type a2 , typename call_traits<A3>::param_type a3 , typename call_traits<A4>::param_type a4 , typename call_traits<A5>::param_type a5 , typename call_traits<A6>::param_type a6 , typename call_traits<A7>::param_type a7 , typename call_traits<A8>::param_type a8 , typename call_traits<A9>::param_type a9 , typename call_traits<A10>::param_type a10 , typename call_traits<A11>::param_type a11 , typename call_traits<A12>::param_type a12 , typename call_traits<A13>::param_type a13 , typename call_traits<A14>::param_type a14 , typename call_traits<A15>::param_type a15 , typename call_traits<A16>::param_type a16 , typename call_traits<A17>::param_type a17 , typename call_traits<A18>::param_type a18 , typename call_traits<A19>::param_type a19 , typename call_traits<A20>::param_type a20 , typename call_traits<A21>::param_type a21 , typename call_traits<A22>::param_type a22 , typename call_traits<A23>::param_type a23 , typename call_traits<A24>::param_type a24 , typename call_traits<A25>::param_type a25 , typename call_traits<A26>::param_type a26 , typename call_traits<A27>::param_type a27 , typename call_traits<A28>::param_type a28 , typename call_traits<A29>::param_type a29 , typename call_traits<A30>::param_type a30 , typename call_traits<A31>::param_type a31 , typename call_traits<A32>::param_type a32 , typename call_traits<A33>::param_type a33 , typename call_traits<A34>::param_type a34 , typename call_traits<A35>::param_type a35 , typename call_traits<A36>::param_type a36 , typename call_traits<A37>::param_type a37 , typename call_traits<A38>::param_type a38 , typename call_traits<A39>::param_type a39)
-        {
-            actor<base_type> const e =
+      { 
+        
+                actor<base_type> const e =
                 {
                     proto::make_expr<
                         Tag
-                      , proto::basic_default_domain
+                      , phoenix_default_domain 
                     >(a0 , a1 , a2 , a3 , a4 , a5 , a6 , a7 , a8 , a9 , a10 , a11 , a12 , a13 , a14 , a15 , a16 , a17 , a18 , a19 , a20 , a21 , a22 , a23 , a24 , a25 , a26 , a27 , a28 , a29 , a30 , a31 , a32 , a33 , a34 , a35 , a36 , a37 , a38 , a39)
                 };
             return e;
         }
         template<typename Expr, typename State, typename Data>
         struct impl
-          : proto::detail::pass_through_impl<expr_ext, Expr, State, Data>
+          : proto::pass_through<expr_ext>::template impl<Expr, State, Data>
         {};
         
         typedef Tag proto_tag;

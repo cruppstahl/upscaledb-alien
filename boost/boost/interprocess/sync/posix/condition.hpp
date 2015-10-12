@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -11,7 +11,11 @@
 #ifndef BOOST_INTERPROCESS_POSIX_CONDITION_HPP
 #define BOOST_INTERPROCESS_POSIX_CONDITION_HPP
 
-#if (defined _MSC_VER) && (_MSC_VER >= 1200)
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
 #  pragma once
 #endif
 
@@ -19,7 +23,7 @@
 #include <boost/interprocess/detail/workaround.hpp>
 
 #include <pthread.h>
-#include <errno.h>   
+#include <errno.h>
 #include <boost/interprocess/sync/posix/pthread_helpers.hpp>
 #include <boost/interprocess/sync/posix/ptime_to_timespec.hpp>
 #include <boost/interprocess/detail/posix_time_types_wrk.hpp>
@@ -44,7 +48,7 @@ class posix_condition
    //!liberating system resources.
    ~posix_condition();
 
-   //!If there is a thread waiting on *this, change that 
+   //!If there is a thread waiting on *this, change that
    //!thread's state to ready. Otherwise there is no effect.
    void notify_one();
 
@@ -52,8 +56,8 @@ class posix_condition
    //!If there are no waiting threads, notify_all() has no effect.
    void notify_all();
 
-   //!Releases the lock on the posix_mutex object associated with lock, blocks 
-   //!the current thread of execution until readied by a call to 
+   //!Releases the lock on the posix_mutex object associated with lock, blocks
+   //!the current thread of execution until readied by a call to
    //!this->notify_one() or this->notify_all(), and then reacquires the lock.
    template <typename L>
    void wait(L& lock)
@@ -75,40 +79,41 @@ class posix_condition
          this->do_wait(*lock.mutex());
    }
 
-   //!Releases the lock on the posix_mutex object associated with lock, blocks 
-   //!the current thread of execution until readied by a call to 
-   //!this->notify_one() or this->notify_all(), or until time abs_time is reached, 
+   //!Releases the lock on the posix_mutex object associated with lock, blocks
+   //!the current thread of execution until readied by a call to
+   //!this->notify_one() or this->notify_all(), or until time abs_time is reached,
    //!and then reacquires the lock.
    //!Returns: false if time abs_time is reached, otherwise true.
    template <typename L>
    bool timed_wait(L& lock, const boost::posix_time::ptime &abs_time)
    {
+      if (!lock)
+         throw lock_exception();
+      //Posix does not support infinity absolute time so handle it here
       if(abs_time == boost::posix_time::pos_infin){
          this->wait(lock);
          return true;
       }
-      if (!lock)
-            throw lock_exception();
       return this->do_timed_wait(abs_time, *lock.mutex());
    }
 
-   //!The same as:   while (!pred()) { 
-   //!                  if (!timed_wait(lock, abs_time)) return pred(); 
+   //!The same as:   while (!pred()) {
+   //!                  if (!timed_wait(lock, abs_time)) return pred();
    //!               } return true;
    template <typename L, typename Pr>
    bool timed_wait(L& lock, const boost::posix_time::ptime &abs_time, Pr pred)
    {
+      if (!lock)
+         throw lock_exception();
+      //Posix does not support infinity absolute time so handle it here
       if(abs_time == boost::posix_time::pos_infin){
          this->wait(lock, pred);
          return true;
       }
-      if (!lock)
-            throw lock_exception();
       while (!pred()){
          if (!this->do_timed_wait(abs_time, *lock.mutex()))
             return pred();
       }
-
       return true;
    }
 
@@ -145,21 +150,21 @@ inline posix_condition::~posix_condition()
 {
     int res = 0;
     res = pthread_cond_destroy(&m_condition);
-    BOOST_ASSERT(res == 0);
+    BOOST_ASSERT(res == 0); (void)res;
 }
 
 inline void posix_condition::notify_one()
 {
     int res = 0;
     res = pthread_cond_signal(&m_condition);
-    BOOST_ASSERT(res == 0);
+    BOOST_ASSERT(res == 0); (void)res;
 }
 
 inline void posix_condition::notify_all()
 {
     int res = 0;
     res = pthread_cond_broadcast(&m_condition);
-    BOOST_ASSERT(res == 0);
+    BOOST_ASSERT(res == 0); (void)res;
 }
 
 inline void posix_condition::do_wait(posix_mutex &mut)
@@ -167,7 +172,7 @@ inline void posix_condition::do_wait(posix_mutex &mut)
    pthread_mutex_t* pmutex = &mut.m_mut;
    int res = 0;
    res = pthread_cond_wait(&m_condition, pmutex);
-   BOOST_ASSERT(res == 0);
+   BOOST_ASSERT(res == 0); (void)res;
 }
 
 inline bool posix_condition::do_timed_wait

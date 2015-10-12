@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2007-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2007-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -11,9 +11,18 @@
 #ifndef BOOST_INTERPROCESS_SYNC_NAMED_CREATION_FUNCTOR_HPP
 #define BOOST_INTERPROCESS_SYNC_NAMED_CREATION_FUNCTOR_HPP
 
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
+#  pragma once
+#endif
+
 #include <boost/interprocess/creation_tags.hpp>
 #include <boost/interprocess/detail/type_traits.hpp>
 #include <boost/interprocess/detail/mpl.hpp>
+#include <boost/container/detail/placement_new.hpp>
 
 namespace boost {
 namespace interprocess {
@@ -31,14 +40,14 @@ class named_creation_functor
 
    template<class ArgType>
    void construct(void *address, typename enable_if_c<is_same<ArgType, no_arg_t>::value>::type * = 0) const
-   {  new(address)T; }
+   {  ::new(address, boost_container_new_t())T; }
 
    template<class ArgType>
    void construct(void *address, typename enable_if_c<!is_same<ArgType, no_arg_t>::value>::type * = 0) const
-   {  new(address)T(m_arg); }
+   {  ::new(address, boost_container_new_t())T(m_arg); }
 
    bool operator()(void *address, std::size_t, bool created) const
-   {   
+   {
       switch(m_creation_type){
          case DoOpen:
             return true;
@@ -56,6 +65,10 @@ class named_creation_functor
          break;
       }
    }
+
+   std::size_t get_min_size() const
+   {  return sizeof(T);  }
+
    private:
    create_enum_t m_creation_type;
    Arg m_arg;

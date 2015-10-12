@@ -22,7 +22,7 @@
 #include <boost/type_traits/is_scalar.hpp>
 #include <boost/type_traits/is_signed.hpp>
 #include <boost/mpl/if.hpp>
-#include <boost/math/common_factor_rt.hpp>
+#include <boost/integer/common_factor_rt.hpp>
 #include <boost/chrono/detail/scan_keyword.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/chrono/detail/no_warning/signed_unsigned_cmp.hpp>
@@ -241,7 +241,7 @@ reduce(intermediate_type& r, unsigned long long& den, std::ios_base::iostate& er
   typedef typename common_type<intermediate_type, unsigned long long>::type common_type_t;
 
     // Reduce r * num / den
-  common_type_t t = math::gcd<common_type_t>(common_type_t(r), common_type_t(den));
+  common_type_t t = integer::gcd<common_type_t>(common_type_t(r), common_type_t(den));
   r /= t;
   den /= t;
   if (den != 1)
@@ -265,59 +265,59 @@ template <class CharT, class Traits, class Rep, class Period>
 std::basic_istream<CharT, Traits>&
 operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
 {
-  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
     typedef duration_punct<CharT> Facet;
     std::locale loc = is.getloc();
-    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
     if (!std::has_facet<Facet>(loc)) {
-      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
         is.imbue(std::locale(loc, new Facet));
     }
-    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
     loc = is.getloc();
     const Facet& f = std::use_facet<Facet>(loc);
     typedef typename chrono_detail::duration_io_intermediate<Rep>::type intermediate_type;
     intermediate_type r;
     std::ios_base::iostate err = std::ios_base::goodbit;
     // read value into r
-    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
     is >> r;
-    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
     if (is.good())
     {
-      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
         // now determine unit
         typedef std::istreambuf_iterator<CharT, Traits> in_iterator;
         in_iterator i(is);
         in_iterator e;
-        std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+        //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
         if (i != e && *i == ' ')  // mandatory ' ' after value
         {
-          std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+          //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
             ++i;
             if (i != e)
             {
-              std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+              //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 // unit is num / den (yet to be determined)
                 unsigned long long num = 0;
                 unsigned long long den = 0;
                 if (*i == '[')
                 {
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     // parse [N/D]s or [N/D]seconds format
                     ++i;
                     CharT x;
                     is >> num >> x >> den;
                     if (!is.good() || (x != '/'))
                     {
-                      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                         is.setstate(is.failbit);
                         return is;
                     }
                     i = in_iterator(is);
                     if (*i != ']')
                     {
-                      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                         is.setstate(is.failbit);
                         return is;
                     }
@@ -328,27 +328,27 @@ operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
                         f.template plural<ratio<1> >(),
                         f.template short_name<ratio<1> >()
                     };
-                    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     const std::basic_string<CharT>* k = chrono_detail::scan_keyword(i, e,
                                   units, units + sizeof(units)/sizeof(units[0]),
                                   //~ std::use_facet<std::ctype<CharT> >(loc),
                                   err);
-                    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     is.setstate(err);
                     switch ((k - units) / 3)
                     {
                     case 0:
-                      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                         break;
                     default:
                         is.setstate(err);
-                        std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                        //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                         return is;
                     }
                 }
                 else
                 {
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     // parse SI name, short or long
                     const std::basic_string<CharT> units[] =
                     {
@@ -410,12 +410,12 @@ operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
                         f.template plural<ratio<3600> >(),
                         f.template short_name<ratio<3600> >()
                     };
-                    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     const std::basic_string<CharT>* k = chrono_detail::scan_keyword(i, e,
                                   units, units + sizeof(units)/sizeof(units[0]),
                                   //~ std::use_facet<std::ctype<CharT> >(loc),
                                   err);
-                    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     switch ((k - units) / 3)
                     {
                     case 0:
@@ -495,17 +495,17 @@ operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
                         den = 1;
                         break;
                     default:
-                      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                         is.setstate(err|is.failbit);
                         return is;
                     }
                 }
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 // unit is num/den
                 // r should be multiplied by (num/den) / Period
                 // Reduce (num/den) / Period to lowest terms
-                unsigned long long gcd_n1_n2 = math::gcd<unsigned long long>(num, Period::num);
-                unsigned long long gcd_d1_d2 = math::gcd<unsigned long long>(den, Period::den);
+                unsigned long long gcd_n1_n2 = integer::gcd<unsigned long long>(num, Period::num);
+                unsigned long long gcd_d1_d2 = integer::gcd<unsigned long long>(den, Period::den);
                 num /= gcd_n1_n2;
                 den /= gcd_d1_d2;
                 unsigned long long n2 = Period::num / gcd_n1_n2;
@@ -513,7 +513,7 @@ operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
                 if (num > (std::numeric_limits<unsigned long long>::max)() / d2 ||
                     den > (std::numeric_limits<unsigned long long>::max)() / n2)
                 {
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     // (num/den) / Period overflows
                     is.setstate(err|is.failbit);
                     return is;
@@ -523,68 +523,68 @@ operator>>(std::basic_istream<CharT, Traits>& is, duration<Rep, Period>& d)
 
                 typedef typename common_type<intermediate_type, unsigned long long>::type common_type_t;
 
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 // num / den is now factor to multiply by r
                 if (!chrono_detail::reduce(r, den, err))
                 {
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                   is.setstate(err|is.failbit);
                   return is;
                 }
 
                 //if (r > ((duration_values<common_type_t>::max)() / num))
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 if (chrono::detail::gt(r,((duration_values<common_type_t>::max)() / num)))
                 {
                     // Conversion to Period overflowed
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     is.setstate(err|is.failbit);
                     return is;
                 }
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 common_type_t t = r * num;
                 t /= den;
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
 
-                if (t > 0)
+                if (t > duration_values<common_type_t>::zero())
                 {
-                  std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                  //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                   Rep pt = t;
                   if ( (duration_values<Rep>::max)() < pt)
                   {
-                    std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                    //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                     // Conversion to Period overflowed
                     is.setstate(err|is.failbit);
                     return is;
                   }
                 }
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 // Success!  Store it.
                 r = Rep(t);
                 d = duration<Rep, Period>(r);
                 is.setstate(err);
-                std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+                //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 return is;
             }
             else {
-              std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+              //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
                 is.setstate(is.failbit | is.eofbit);
                 return is;
             }
         }
         else
         {
-          std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+          //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
             if (i == e)
               is.setstate(is.failbit|is.eofbit);
             else
               is.setstate(is.failbit);
-            std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+            //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
             return is;
         }
     }
     else {
-      std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
+      //std::cerr << __FILE__ << "[" << __LINE__ << "]"<< std::endl;
         //is.setstate(is.failbit);
       return is;
     }

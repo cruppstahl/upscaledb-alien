@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 // (C) Copyright John Maddock 2000.
-// (C) Copyright Ion Gaztanaga 2005-2011.
+// (C) Copyright Ion Gaztanaga 2005-2012.
 //
 // Distributed under the Boost Software License, Version 1.0.
 // (See accompanying file LICENSE_1_0.txt or copy at
@@ -13,14 +13,18 @@
 #ifndef BOOST_INTERPROCESS_DETAIL_TYPE_TRAITS_HPP
 #define BOOST_INTERPROCESS_DETAIL_TYPE_TRAITS_HPP
 
-#if (defined _MSC_VER) && (_MSC_VER >= 1200)
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
 #  pragma once
 #endif
 
 #include <boost/interprocess/detail/config_begin.hpp>
 
 namespace boost {
-namespace interprocess { 
+namespace interprocess {
 namespace ipcdetail {
 
 struct nat{};
@@ -117,6 +121,12 @@ struct remove_volatile<volatile T>
    typedef T type;
 };
 
+template<class T>
+struct remove_const_volatile
+{
+   typedef typename remove_const<typename remove_volatile<T>::type>::type type;
+};
+
 template <typename T, typename U>
 struct is_same
 {
@@ -136,8 +146,15 @@ struct is_same
    static const bool value = sizeof(yes_type) == sizeof(is_same_tester(t,u));
 };
 
+template<class T, class U>
+struct is_cv_same
+{
+   static const bool value = is_same< typename remove_const_volatile<T>::type
+                                    , typename remove_const_volatile<U>::type >::value;
+};
+
 } // namespace ipcdetail
-}  //namespace interprocess { 
+}  //namespace interprocess {
 }  //namespace boost {
 
 #include <boost/interprocess/detail/config_end.hpp>

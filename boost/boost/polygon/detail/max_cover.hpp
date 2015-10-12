@@ -1,6 +1,6 @@
 /*
   Copyright 2008 Intel Corporation
- 
+
   Use, modification and distribution are subject to the Boost Software License,
   Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
   http://www.boost.org/LICENSE_1_0.txt).
@@ -35,7 +35,7 @@ namespace boost { namespace polygon{
     };
 
     typedef std::pair<std::pair<Unit, Interval>, Node* > EdgeAssociation;
-  
+
     class lessEdgeAssociation : public std::binary_function<const EdgeAssociation&, const EdgeAssociation&, bool> {
     public:
       inline lessEdgeAssociation() {}
@@ -83,7 +83,7 @@ namespace boost { namespace polygon{
     };
 
     template <class cT>
-    static inline void getMaxCover(cT& outputContainer, Node* node, orientation_2d orient, 
+    static inline void getMaxCover(cT& outputContainer, Node* node, orientation_2d orient,
                                    Rectangle rect) {
       //std::cout << "New Root\n";
       std::vector<stack_element> stack;
@@ -118,7 +118,7 @@ namespace boost { namespace polygon{
             //std::cout << "write out " << nextRect << std::endl;
             outputContainer.push_back(copy_construct<typename cT::value_type, Rectangle>(nextRect2));
           } else {
-            //std::cout << "supress " << nextRect << std::endl;
+            //std::cout << "suppress " << nextRect << std::endl;
           }
         }
         if(itr != node->end() && iresult && tresult) {
@@ -170,7 +170,7 @@ namespace boost { namespace polygon{
         Because the code is so much simpler than the loop algorithm I retain it for clarity
 
     template <class cT>
-    static inline void getMaxCover(cT& outputContainer, Node* node, orientation_2d orient, 
+    static inline void getMaxCover(cT& outputContainer, Node* node, orientation_2d orient,
                                    const Rectangle& rect) {
       Interval rectIvl = rect.get(orient);
       Interval nodeIvl = node->rect.get(orient);
@@ -205,7 +205,7 @@ namespace boost { namespace polygon{
     template <class iT>
     static inline void computeDag(iT beginNode, iT endNode, orientation_2d orient,
                                   std::size_t size) {
-      std::vector<EdgeAssociation> leadingEdges; 
+      std::vector<EdgeAssociation> leadingEdges;
       leadingEdges.reserve(size);
       for(iT iter = beginNode; iter != endNode; ++iter) {
         Node* nodep = &(*iter);
@@ -213,7 +213,7 @@ namespace boost { namespace polygon{
         Interval rectIvl = nodep->rect.get(orient);
         leadingEdges.push_back(EdgeAssociation(std::pair<Unit, Interval>(leading, rectIvl), nodep));
       }
-      gtlsort(leadingEdges.begin(), leadingEdges.end(), lessEdgeAssociation());
+      polygon_sort(leadingEdges.begin(), leadingEdges.end(), lessEdgeAssociation());
       typename std::vector<EdgeAssociation>::iterator leadingBegin = leadingEdges.begin();
       iT trailingBegin = beginNode;
       while(leadingBegin != leadingEdges.end()) {

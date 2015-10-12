@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2009-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2009-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -11,6 +11,14 @@
 #ifndef BOOST_INTERPROCESS_XSI_XSI_NAMED_MUTEX_HPP
 #define BOOST_INTERPROCESS_XSI_XSI_NAMED_MUTEX_HPP
 
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
+#  pragma once
+#endif
+
 #include <boost/interprocess/detail/config_begin.hpp>
 #include <boost/interprocess/detail/workaround.hpp>
 
@@ -18,7 +26,7 @@
 #error "This header can't be used in Windows operating systems"
 #endif
 
-#include <boost/move/move.hpp>
+#include <boost/move/utility_core.hpp>
 #include <boost/interprocess/creation_tags.hpp>
 #include <boost/interprocess/exceptions.hpp>
 #include <boost/interprocess/detail/utilities.hpp>
@@ -26,11 +34,13 @@
 #include <boost/interprocess/interprocess_fwd.hpp>
 #include <boost/interprocess/exceptions.hpp>
 #include <boost/interprocess/sync/xsi/basic_xsi_semaphore.hpp>
+#include <boost/interprocess/detail/simple_swap.hpp>
+
 #include <cstddef>
 #include <boost/assert.hpp>
 #include <boost/cstdint.hpp>
 #include <string>
-#include <boost/assert.hpp>
+
 
 //!\file
 //!Describes a class representing a xsi-based named_mutex.
@@ -42,11 +52,11 @@ namespace interprocess {
 //!that undoes the operation if the process crashes.
 class xsi_named_mutex
 {
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    //Non-copyable and non-assignable
    xsi_named_mutex(xsi_named_mutex &);
    xsi_named_mutex &operator=(xsi_named_mutex &);
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
    public:
    BOOST_MOVABLE_BUT_NOT_COPYABLE(xsi_named_mutex)
@@ -62,20 +72,20 @@ class xsi_named_mutex
    xsi_named_mutex(open_or_create_t, const char *path, boost::uint8_t id, int perm = 0666)
    {  this->priv_open_or_create(ipcdetail::DoOpenOrCreate, path, id, perm);  }
 
-   //!Moves the ownership of "moved"'s named mutex to *this. 
-   //!After the call, "moved" does not represent any named mutex 
+   //!Moves the ownership of "moved"'s named mutex to *this.
+   //!After the call, "moved" does not represent any named mutex
    //!Does not throw
    xsi_named_mutex(BOOST_RV_REF(xsi_named_mutex) moved)
    {  this->swap(moved);   }
 
    //!Moves the ownership of "moved"'s named mutex to *this.
-   //!After the call, "moved" does not represent any named mutex. 
+   //!After the call, "moved" does not represent any named mutex.
    //!Does not throw
    xsi_named_mutex &operator=(BOOST_RV_REF(xsi_named_mutex) moved)
-   {  
+   {
       xsi_named_mutex tmp(boost::move(moved));
       this->swap(tmp);
-      return *this;  
+      return *this;
    }
 
    //!Swaps two xsi_named_mutex. Does not throw
@@ -105,7 +115,7 @@ class xsi_named_mutex
 
    void unlock();
 
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    private:
 
    //!Closes a previously opened file mapping. Never throws.
@@ -121,16 +131,16 @@ class xsi_named_mutex
    boost::uint8_t m_id;
    int            m_perm;
    std::string    m_path;
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 };
 
-/// @cond
+#if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
 
-inline xsi_named_mutex::xsi_named_mutex() 
+inline xsi_named_mutex::xsi_named_mutex()
    :  m_semid(-1), m_key(-1), m_id(0), m_perm(0), m_path()
 {}
 
-inline xsi_named_mutex::~xsi_named_mutex() 
+inline xsi_named_mutex::~xsi_named_mutex()
 {  this->priv_close(); }
 
 inline const char *xsi_named_mutex::get_path() const
@@ -138,11 +148,11 @@ inline const char *xsi_named_mutex::get_path() const
 
 inline void xsi_named_mutex::swap(xsi_named_mutex &other)
 {
-   std::swap(m_key,   other.m_key);
-   std::swap(m_id,    other.m_id);
-   std::swap(m_semid, other.m_semid);
-   std::swap(m_perm,  other.m_perm);
-   m_path.swap(other.m_path);   
+   (simple_swap)(m_key,   other.m_key);
+   (simple_swap)(m_id,    other.m_id);
+   (simple_swap)(m_semid, other.m_semid);
+   (simple_swap)(m_perm,  other.m_perm);
+   m_path.swap(other.m_path);
 }
 
 inline mapping_handle_t xsi_named_mutex::get_mapping_handle() const
@@ -218,7 +228,7 @@ inline bool xsi_named_mutex::remove()
    return false;
 }
 
-///@endcond
+#endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
 }  //namespace interprocess {
 }  //namespace boost {

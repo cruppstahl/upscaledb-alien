@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -27,9 +27,13 @@
 #ifndef BOOST_INTERPROCESS_RECURSIVE_MUTEX_HPP
 #define BOOST_INTERPROCESS_RECURSIVE_MUTEX_HPP
 
-/// @cond
+#if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
 
-#if (defined _MSC_VER) && (_MSC_VER >= 1200)
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
 #  pragma once
 #endif
 
@@ -43,9 +47,9 @@
    #include <boost/interprocess/sync/posix/recursive_mutex.hpp>
    #define BOOST_INTERPROCESS_USE_POSIX
 //Experimental...
-//#elif !defined(BOOST_INTERPROCESS_FORCE_GENERIC_EMULATION) && defined (BOOST_INTERPROCESS_WINDOWS)
-//   #include <boost/interprocess/sync/windows/recursive_mutex.hpp>
-//   #define BOOST_INTERPROCESS_USE_WINDOWS
+#elif !defined(BOOST_INTERPROCESS_FORCE_GENERIC_EMULATION) && defined (BOOST_INTERPROCESS_WINDOWS)
+   #include <boost/interprocess/sync/windows/recursive_mutex.hpp>
+   #define BOOST_INTERPROCESS_USE_WINDOWS
 #elif !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    #include <boost/interprocess/sync/spin/recursive_mutex.hpp>
    #define BOOST_INTERPROCESS_USE_GENERIC_EMULATION
@@ -64,7 +68,7 @@ class mutex_traits;
 
 #endif
 
-/// @endcond
+#endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
 //!\file
 //!Describes interprocess_recursive_mutex and shared_recursive_try_mutex classes
@@ -72,16 +76,16 @@ class mutex_traits;
 namespace boost {
 namespace interprocess {
 
-//!Wraps a interprocess_mutex that can be placed in shared memory and can be 
-//!shared between processes. Allows several locking calls by the same 
+//!Wraps a interprocess_mutex that can be placed in shared memory and can be
+//!shared between processes. Allows several locking calls by the same
 //!process. Allows timed lock tries
 class interprocess_recursive_mutex
 {
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    //Non-copyable
    interprocess_recursive_mutex(const interprocess_recursive_mutex &);
    interprocess_recursive_mutex &operator=(const interprocess_recursive_mutex &);
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
    public:
    //!Constructor.
    //!Throws interprocess_exception on error.
@@ -99,7 +103,7 @@ class interprocess_recursive_mutex
    //!Throws: interprocess_exception on error.
    void lock();
 
-   //!Tries to lock the interprocess_mutex, returns false when interprocess_mutex 
+   //!Tries to lock the interprocess_mutex, returns false when interprocess_mutex
    //!is already locked, returns true when success. The mutex must be unlocked
    //!the same number of times it is locked.
    //!Throws: interprocess_exception if a severe error is found
@@ -116,7 +120,7 @@ class interprocess_recursive_mutex
    //!   same number of times it is locked.
    //!Throws: interprocess_exception on error.
    void unlock();
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    private:
 
    #if defined (BOOST_INTERPROCESS_USE_GENERIC_EMULATION)
@@ -133,7 +137,7 @@ class interprocess_recursive_mutex
    #else
       #error "Unknown platform for interprocess_mutex"
    #endif
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 };
 
 }  //namespace interprocess {

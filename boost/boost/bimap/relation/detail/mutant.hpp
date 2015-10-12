@@ -12,7 +12,7 @@
 #ifndef BOOST_BIMAP_RELATION_DETAIL_MUTANT_HPP
 #define BOOST_BIMAP_RELATION_DETAIL_MUTANT_HPP
 
-#if defined(_MSC_VER) && (_MSC_VER>=1200)
+#if defined(_MSC_VER)
 #pragma once
 #endif
 
@@ -21,9 +21,9 @@
 #include <boost/bimap/detail/debug/static_error.hpp>
 #include <boost/mpl/contains.hpp>
 #include <boost/mpl/assert.hpp>
-#include <boost/utility.hpp>
 #include <boost/static_assert.hpp>
 #include <boost/type_traits/is_const.hpp>
+#include <boost/utility/addressof.hpp>
 #include <boost/mpl/not.hpp>
 #include <boost/utility/enable_if.hpp>
 

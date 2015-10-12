@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga 2005-2011. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2005-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -27,7 +27,11 @@
 #ifndef BOOST_INTERPROCESS_DETAIL_SPIN_RECURSIVE_MUTEX_HPP
 #define BOOST_INTERPROCESS_DETAIL_SPIN_RECURSIVE_MUTEX_HPP
 
-#if (defined _MSC_VER) && (_MSC_VER >= 1200)
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
 #  pragma once
 #endif
 
@@ -68,7 +72,7 @@ class spin_recursive_mutex
    volatile boost::uint32_t m_s;
 };
 
-inline spin_recursive_mutex::spin_recursive_mutex() 
+inline spin_recursive_mutex::spin_recursive_mutex()
    : m_nLockCount(0), m_nOwner(ipcdetail::get_invalid_systemwide_thread_id()){}
 
 inline spin_recursive_mutex::~spin_recursive_mutex(){}
@@ -83,7 +87,7 @@ inline void spin_recursive_mutex::lock()
       if((unsigned int)(m_nLockCount+1) == 0){
          //Overflow, throw an exception
          throw interprocess_exception("boost::interprocess::spin_recursive_mutex recursive lock overflow");
-      } 
+      }
       ++m_nLockCount;
    }
    else{
@@ -103,7 +107,7 @@ inline bool spin_recursive_mutex::try_lock()
       if((unsigned int)(m_nLockCount+1) == 0){
          //Overflow, throw an exception
          throw interprocess_exception("boost::interprocess::spin_recursive_mutex recursive lock overflow");
-      } 
+      }
       ++m_nLockCount;
       return true;
    }
@@ -118,10 +122,6 @@ inline bool spin_recursive_mutex::try_lock()
 inline bool spin_recursive_mutex::timed_lock(const boost::posix_time::ptime &abs_time)
 {
    typedef ipcdetail::OS_systemwide_thread_id_t handle_t;
-   if(abs_time == boost::posix_time::pos_infin){
-      this->lock();
-      return true;
-   }
    const handle_t thr_id(ipcdetail::get_current_systemwide_thread_id());
    handle_t old_id;
    ipcdetail::systemwide_thread_id_copy(m_nOwner, old_id);
@@ -129,10 +129,11 @@ inline bool spin_recursive_mutex::timed_lock(const boost::posix_time::ptime &abs
       if((unsigned int)(m_nLockCount+1) == 0){
          //Overflow, throw an exception
          throw interprocess_exception("boost::interprocess::spin_recursive_mutex recursive lock overflow");
-      } 
+      }
       ++m_nLockCount;
       return true;
    }
+   //m_mutex supports abs_time so no need to check it
    if(m_mutex.timed_lock(abs_time)){
       ipcdetail::systemwide_thread_id_copy(thr_id, m_nOwner);
       m_nLockCount = 1;

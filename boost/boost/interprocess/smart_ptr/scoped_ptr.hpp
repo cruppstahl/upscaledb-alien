@@ -4,7 +4,7 @@
 //
 // (C) Copyright Greg Colvin and Beman Dawes 1998, 1999.
 // (C) Copyright Peter Dimov 2001, 2002
-// (C) Copyright Ion Gaztanaga 2006. Distributed under the Boost
+// (C) Copyright Ion Gaztanaga 2006-2012. Distributed under the Boost
 // Software License, Version 1.0. (See accompanying file
 // LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 //
@@ -15,11 +15,20 @@
 #ifndef BOOST_INTERPROCESS_SCOPED_PTR_HPP_INCLUDED
 #define BOOST_INTERPROCESS_SCOPED_PTR_HPP_INCLUDED
 
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+#
+#if defined(BOOST_HAS_PRAGMA_ONCE)
+#  pragma once
+#endif
+
 #include <boost/interprocess/detail/config_begin.hpp>
 #include <boost/interprocess/detail/workaround.hpp>
 #include <boost/interprocess/detail/pointer_type.hpp>
 #include <boost/interprocess/detail/utilities.hpp>
 #include <boost/assert.hpp>
+#include <boost/move/adl_move_swap.hpp>
 
 //!\file
 //!Describes the smart pointer scoped_ptr
@@ -27,26 +36,26 @@
 namespace boost {
 namespace interprocess {
 
-//!scoped_ptr stores a pointer to a dynamically allocated object. 
+//!scoped_ptr stores a pointer to a dynamically allocated object.
 //!The object pointed to is guaranteed to be deleted, either on destruction
 //!of the scoped_ptr, or via an explicit reset. The user can avoid this
 //!deletion using release().
-//!scoped_ptr is parameterized on T (the type of the object pointed to) and 
+//!scoped_ptr is parameterized on T (the type of the object pointed to) and
 //!Deleter (the functor to be executed to delete the internal pointer).
-//!The internal pointer will be of the same pointer type as typename 
-//!Deleter::pointer type (that is, if typename Deleter::pointer is 
+//!The internal pointer will be of the same pointer type as typename
+//!Deleter::pointer type (that is, if typename Deleter::pointer is
 //!offset_ptr<void>, the internal pointer will be offset_ptr<T>).
 template<class T, class Deleter>
 class scoped_ptr
    : private Deleter
 {
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    scoped_ptr(scoped_ptr const &);
    scoped_ptr & operator=(scoped_ptr const &);
 
    typedef scoped_ptr<T, Deleter> this_type;
    typedef typename ipcdetail::add_reference<T>::type reference;
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
    public:
 
@@ -60,10 +69,10 @@ class scoped_ptr
       : Deleter(d), m_ptr(p) // throws if pointer/Deleter copy ctor throws
    {}
 
-   //!If the stored pointer is not 0, destroys the object pointed to by the stored pointer. 
+   //!If the stored pointer is not 0, destroys the object pointed to by the stored pointer.
    //!calling the operator() of the stored deleter. Never throws
    ~scoped_ptr()
-   { 
+   {
       if(m_ptr){
          Deleter &del = static_cast<Deleter&>(*this);
          del(m_ptr);
@@ -125,12 +134,15 @@ class scoped_ptr
    //!Exchanges the internal pointer and deleter with other scoped_ptr
    //!Never throws.
    void swap(scoped_ptr & b) // never throws
-   {  ipcdetail::do_swap<Deleter>(*this, b); ipcdetail::do_swap(m_ptr, b.m_ptr); }
+   {
+      ::boost::adl_move_swap(static_cast<Deleter&>(*this), static_cast<Deleter&>(b));
+      ::boost::adl_move_swap(m_ptr, b.m_ptr);
+   }
 
-   /// @cond
+   #if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
    private:
    pointer m_ptr;
-   /// @endcond
+   #endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 };
 
 //!Exchanges the internal pointer and deleter with other scoped_ptr
@@ -147,7 +159,7 @@ typename scoped_ptr<T, D>::pointer to_raw_pointer(scoped_ptr<T, D> const & p)
 
 } // namespace interprocess
 
-/// @cond
+#if !defined(BOOST_INTERPROCESS_DOXYGEN_INVOKED)
 
 #if defined(_MSC_VER) && (_MSC_VER < 1400)
 template<class T, class D> inline
@@ -155,7 +167,7 @@ T *to_raw_pointer(boost::interprocess::scoped_ptr<T, D> const & p)
 {  return p.get();   }
 #endif
 
-/// @endcond
+#endif   //#ifndef BOOST_INTERPROCESS_DOXYGEN_INVOKED
 
 } // namespace boost
 

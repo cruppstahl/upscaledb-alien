@@ -18,6 +18,11 @@
 #include <boost/proto/detail/as_expr.hpp>
 #include <boost/proto/detail/deduce_domain.hpp>
 
+#if defined(_MSC_VER)
+# pragma warning(push)
+# pragma warning(disable : 4714) // function 'xxx' marked as __forceinline not inlined
+#endif
+
 namespace boost { namespace proto
 {
 
@@ -324,5 +329,9 @@ namespace boost { namespace proto
     {};
 
 }}
+
+#if defined(_MSC_VER)
+# pragma warning(pop)
+#endif
 
 #endif

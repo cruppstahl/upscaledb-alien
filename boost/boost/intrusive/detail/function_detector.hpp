@@ -1,6 +1,6 @@
 /////////////////////////////////////////////////////////////////////////////
 //
-// (C) Copyright Ion Gaztanaga  2009-2009.
+// (C) Copyright Ion Gaztanaga  2009-2013.
 //
 // Distributed under the Boost Software License, Version 1.0.
 //    (See accompanying file LICENSE_1_0.txt or copy at
@@ -15,14 +15,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Copyright 2007 Alexandre Courpron
 //
-// Permission to use, copy, modify, redistribute and sell this software, 
+// Permission to use, copy, modify, redistribute and sell this software,
 // provided that this copyright notice appears on all copies of the software.
 ///////////////////////////////////////////////////////////////////////////////
 
 #ifndef BOOST_INTRUSIVE_DETAIL_FUNCTION_DETECTOR_HPP
 #define BOOST_INTRUSIVE_DETAIL_FUNCTION_DETECTOR_HPP
 
-#include <boost/intrusive/detail/config_begin.hpp>
+#ifndef BOOST_CONFIG_HPP
+#  include <boost/config.hpp>
+#endif
+
+#if defined(BOOST_HAS_PRAGMA_ONCE)
+#  pragma once
+#endif
 
 namespace boost {
 namespace intrusive {
@@ -74,7 +80,7 @@ namespace function_detector {
    public : \
       static const int check = NotFound + (sizeof(Test<T>(0, 0)) - sizeof(NotFoundType));\
    };\
-}}} //namespace boost::intrusive::function_detector { 
+}}} //namespace boost::intrusive::function_detector {
 
 #define BOOST_INTRUSIVE_DETECT_FUNCTION(Class, InstantiationKey, ReturnType, Identifier, Params) \
     ::boost::intrusive::function_detector::DetectMember_##InstantiationKey_##Identifier< Class,\
@@ -82,7 +88,5 @@ namespace function_detector {
                                          ReturnType (Class::*)Params const,\
                                          ReturnType (*)Params \
                                        >::check
-
-#include <boost/intrusive/detail/config_end.hpp>
 
 #endif   //@ifndef BOOST_INTRUSIVE_DETAIL_FUNCTION_DETECTOR_HPP

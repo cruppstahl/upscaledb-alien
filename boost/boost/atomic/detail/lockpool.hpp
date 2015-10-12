@@ -1,89 +1,51 @@
-#ifndef BOOST_ATOMIC_DETAIL_LOCKPOOL_HPP
-#define BOOST_ATOMIC_DETAIL_LOCKPOOL_HPP
+/*
+ * Distributed under the Boost Software License, Version 1.0.
+ * (See accompanying file LICENSE_1_0.txt or copy at
+ * http://www.boost.org/LICENSE_1_0.txt)
+ *
+ * Copyright (c) 2011 Helge Bahmann
+ * Copyright (c) 2013-2014 Andrey Semashev
+ */
+/*!
+ * \file   atomic/detail/lockpool.hpp
+ *
+ * This header contains declaration of the lockpool used to emulate atomic ops.
+ */
 
-//  Copyright (c) 2011 Helge Bahmann
-//
-//  Distributed under the Boost Software License, Version 1.0.
-//  See accompanying file LICENSE_1_0.txt or copy at
-//  http://www.boost.org/LICENSE_1_0.txt)
+#ifndef BOOST_ATOMIC_DETAIL_LOCKPOOL_HPP_INCLUDED_
+#define BOOST_ATOMIC_DETAIL_LOCKPOOL_HPP_INCLUDED_
 
+#include <boost/atomic/detail/config.hpp>
+#include <boost/atomic/detail/link.hpp>
 
-#include <boost/atomic/config.hpp>
-#ifndef BOOST_ATOMIC_FLAG_LOCK_FREE
-#include <boost/thread/mutex.hpp>
+#ifdef BOOST_HAS_PRAGMA_ONCE
+#pragma once
 #endif
 
 namespace boost {
 namespace atomics {
 namespace detail {
 
-#ifndef BOOST_ATOMIC_FLAG_LOCK_FREE
-
-class lockpool {
-public:
-    typedef mutex lock_type;
-    class scoped_lock {
-    private:
-        mutex::scoped_lock guard;
-    public:
-        explicit
-        scoped_lock(const volatile void * addr) : guard( lock_for(addr) )
-        {
-        }
-    };
-private:
-    static BOOST_ATOMIC_DECL mutex pool_[41];
-
-    static mutex &
-    lock_for(const volatile void * addr)
+struct lockpool
+{
+    class scoped_lock
     {
-        std::size_t index = reinterpret_cast<std::size_t>(addr) % 41;
-        return pool_[index];
-    }
-};
-
-#else
-
-class lockpool {
-public:
-    typedef atomic_flag lock_type;
-
-    class scoped_lock {
-    private:
-        atomic_flag & flag_;
-
-        scoped_lock(const scoped_lock &) /* = delete */;
-        void operator=(const scoped_lock &) /* = delete */;
+        void* m_lock;
 
     public:
-        explicit
-        scoped_lock(const volatile void * addr) : flag_( lock_for(addr) )
-        {
-            do {
-            } while (flag_.test_and_set(memory_order_acquire));
-        }
+        explicit BOOST_ATOMIC_DECL scoped_lock(const volatile void* addr) BOOST_NOEXCEPT;
+        BOOST_ATOMIC_DECL ~scoped_lock() BOOST_NOEXCEPT;
 
-        ~scoped_lock(void)
-        {
-            flag_.clear(memory_order_release);
-        }
+        BOOST_DELETED_FUNCTION(scoped_lock(scoped_lock const&))
+        BOOST_DELETED_FUNCTION(scoped_lock& operator=(scoped_lock const&))
     };
 
-private:
-    static BOOST_ATOMIC_DECL atomic_flag pool_[41];
-
-    static lock_type &
-    lock_for(const volatile void * addr)
-    {
-        std::size_t index = reinterpret_cast<std::size_t>(addr) % 41;
-        return pool_[index];
-    }
+    static BOOST_ATOMIC_DECL void thread_fence() BOOST_NOEXCEPT;
+    static BOOST_ATOMIC_DECL void signal_fence() BOOST_NOEXCEPT;
 };
 
-#endif
+} // namespace detail
+} // namespace atomics
+} // namespace boost
 
-}
-}
-}
-
-#endif
+#endif // BOOST_ATOMIC_DETAIL_LOCKPOOL_HPP_INCLUDED_
